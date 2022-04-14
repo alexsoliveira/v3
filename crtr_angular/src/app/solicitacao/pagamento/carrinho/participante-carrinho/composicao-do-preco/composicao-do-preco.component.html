@@ -1,0 +1,34 @@
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]='dataSource'>
+
+    <!-- <ng-container matColumnDef="idPessoa">
+      <th mat-header-cell *matHeaderCellDef [hidden]='true'> Pessoa </th>
+      <td mat-cell *matCellDef="let row" [hidden]='true'> {{row.idPessoa}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="servico">
+      <th mat-header-cell *matHeaderCellDef> Serviço </th>
+      <td mat-cell *matCellDef="let row"> {{row.servico}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="observacao">
+      <th mat-header-cell *matHeaderCellDef> Observacao </th>
+      <td mat-cell *matCellDef="let row"> {{row.observacao}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="destino">
+      <th mat-header-cell *matHeaderCellDef> Destino </th>
+      <td mat-cell *matCellDef="let row"> {{row.destino}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="custo">
+      <th class="cab" mat-header-cell *matHeaderCellDef> Custo </th>
+      <td class="linha" mat-cell *matCellDef="let row"> <strong class="corValor">{{row.custo | currency:'BRL':true:'1.2'  }}</strong></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+  </table>
+</div>
+<p style="text-align: end; margin-top: 10px; margin-bottom: 0px;">Total: <strong
+    class="corValor">{{valorTotal | currency:'BRL':true:'1.2-2'}}</strong></p>

@@ -1,0 +1,12 @@
+<div class="example-container">
+    <mat-card class="mat-elevation-z8">
+        <button [disabled]="!blogDocumentoAssinado" mat-raised-button class="btnSuccess" (click)="downloadArquivo()">
+            <mat-icon>create</mat-icon>
+            <span> Download do Arquivo</span>
+        </button>
+        <p>Este documento foi criado e assinado pelo Tabelionet.</p>
+        <!-- <mat-card appMaterialElevation class="card-rounded mat-elevation-z8" style="width:50px;height: 50px;">
+            <img style="width:50px;height: 50px;" [src]="'data:application/pdf;base64,' + blogDocumentoAssinado" />
+        </mat-card> -->
+    </mat-card>
+</div>

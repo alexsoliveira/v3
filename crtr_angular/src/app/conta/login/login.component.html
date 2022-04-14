@@ -1,0 +1,54 @@
+<div class="container">
+  <mat-card id="app-login">
+    <mat-card-header>
+      <mat-card-title>Faça login para continuar</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+      <form (ngSubmit)="Login()" [formGroup]="loginForm">
+        <mat-form-field>
+          <mat-label>E-mail</mat-label>
+          <input matInput type="email" placeholder="email" formControlName="email" required email/>
+          <mat-error *ngFor="let validation of msgErros.email">
+            <mat-error class="error-message"
+              *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+              {{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+        <mat-form-field>
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" formControlName="password" required/>
+          <mat-error *ngFor="let validation of msgErros.senha">
+            <mat-error class="error-message"
+              *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+              {{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <!-- <div class="slide" >
+          <mat-slide-toggle name="lembrar" color="primary" [(ngModel)]="lembrar">Lembrar-me!</mat-slide-toggle>
+        </div> -->
+        <br>
+        <br>
+        <br>
+        <button class="button" mat-raised-button color="primary" [disabled]="!loginForm.valid" type="submit">
+          Entrar
+        </button>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <section class="table">
+        <div class="cell">
+          <a mat-button [routerLink]="['/conta/cadastro']" routerLinkActive="router-link-active" color="primary">
+            Crie sua conta</a>
+        </div>
+        <div class="cell">
+          <a mat-button [routerLink]="['/conta/recuperar-senha']" routerLinkActive="router-link-active"
+            color="primary">Esqueceu a senha?</a>
+        </div>
+      </section>
+    </mat-card-actions>
+  </mat-card>
+</div>

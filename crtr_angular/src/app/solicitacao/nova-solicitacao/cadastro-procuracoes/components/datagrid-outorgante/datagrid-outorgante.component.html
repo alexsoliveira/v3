@@ -1,0 +1,102 @@
+<div *ngIf="dataSource.length">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Nome Outorgante Column -->
+    <ng-container matColumnDef="nomePessoa">
+      <th mat-header-cell *matHeaderCellDef> Outorgantes </th>
+      <td mat-cell *matCellDef="let row"> {{ row.nomePessoa }} </td>
+    </ng-container>
+
+    <!-- Documento Outorgante Column -->
+    <ng-container matColumnDef="documento">
+      <th mat-header-cell *matHeaderCellDef> Documento </th>
+      <td mat-cell *matCellDef="let row"> {{row.documento}} </td>
+    </ng-container>
+
+    <!-- Receber Físico Column -->
+    <!-- <ng-container matColumnDef="receberFisico">
+      <th mat-header-cell *matHeaderCellDef> Receber Físico? </th>
+      <td mat-cell *matCellDef="let row"> {{row.receberFisico}} </td>
+    </ng-container> -->
+
+    <!-- Ordem Aprovação da Minuta Column -->
+    <!-- <ng-container matColumnDef="ordemAprovacaoMinuta">
+      <th mat-header-cell *matHeaderCellDef> Ordem Aprov. Minuta </th>
+      <td mat-cell *matCellDef="let row"> {{ row.ordemAprovacaoMinuta }} </td>
+    </ng-container> -->
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let row">
+        <!-- <button mat-raised-button class="btnWarning" (click)="editarParte(row.IdSolicitacaoParte)">
+          <i class="material-icons">
+            edit
+          </i>
+        </button> -->
+        <button mat-button mat-raised-button class="btnDanger" (click)="abrirModal(row)">
+          <i class="material-icons">
+            delete
+          </i>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<div *ngIf="!dataSource.length">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Nome Outorgante Column -->
+    <ng-container matColumnDef="nomePessoa">
+      <th mat-header-cell *matHeaderCellDef> Outorgantes </th>
+      <td mat-cell *matCellDef="let row"> {{ row.nomePessoa }} </td>
+    </ng-container>
+
+    <!-- Documento Outorgante Column -->
+    <ng-container matColumnDef="documento">
+      <th mat-header-cell *matHeaderCellDef> Documento </th>
+      <td mat-cell *matCellDef="let row"> {{row.documento}} </td>
+    </ng-container>
+
+    <!-- Receber Físico Column -->
+    <!-- <ng-container matColumnDef="receberFisico">
+      <th mat-header-cell *matHeaderCellDef> Receber Físico? </th>
+      <td mat-cell *matCellDef="let row"> {{row.receberFisico}} </td>
+    </ng-container> -->
+
+    <!-- Ordem Aprovação da Minuta Column -->
+    <!-- <ng-container matColumnDef="ordemAprovacaoMinuta">
+      <th mat-header-cell *matHeaderCellDef> Ordem Aprov. Minuta </th>
+      <td mat-cell *matCellDef="let row"> {{ row.ordemAprovacaoMinuta }} </td>
+    </ng-container> -->
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-raised-button class="btnSuccess" (click)="editarParte(row.IdSolicitacaoParte)">
+          <i class="material-icons">
+            edit
+          </i>
+        </button>
+        <button mat-button mat-raised-button class="btnSuccess" (click)="abrirModal(row)">
+          <i class="material-icons">
+            delete
+          </i>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="2">Não possui registro de participante.</td>
+    </tr>
+  </table>
+
+</div>

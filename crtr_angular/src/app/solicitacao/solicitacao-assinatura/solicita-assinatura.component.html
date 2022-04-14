@@ -1,0 +1,66 @@
+<div class="example-container">
+  <mat-card class="mat-elevation-z8">
+    <form [formGroup]="assinaturaFormulario">
+      <div class="content" fxLayout="row wrap" fxLayoutAlign="space-around start" fxLayoutGap="16px grid">
+        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+            <div class="compass">
+              <div class="item">
+                <mat-form-field aria-placeholder="PDF para ser assinado">
+                  <ngx-mat-file-input  placeholder="RG ou RNE para assinar" [accept]="'.pdf'" 
+                    (change)="selecionarArquivo()" formControlName="uploadArquivo" #fileInput required>
+                    <mat-icon ngxMatFileInputIcon required>folder</mat-icon>
+                  </ngx-mat-file-input> <!-- [disabled]="!checkDadosRota" -->
+                  
+                  <mat-error *ngIf="documentoValido()">
+                    <strong>Upload do arquivo</strong> é obrigatório.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="item">
+                <button  [disabled]="!checkDadosRota" mat-raised-button class="btnSuccess" (click)="abrirModalCertificado()">
+                  <mat-icon>{{nomeIconeOk}}</mat-icon>
+                  <span> Selecione o certificado</span>
+                </button>
+              </div>
+
+              <div *ngIf="!result && !loading && !error">
+                <select class="certificate-select" [(ngModel)]="selectedCertificate">
+                  <option *ngFor="let certificate of certificateList" [value]="certificate.thumbprint">
+                    <b *ngIf="certificate.validityEnd < now">(Expired) </b>
+                    <span>{{ certificate.subjectName }}</span> |
+                    <small>Issued by: {{certificate.issuerName}}</small>
+                  </option>
+                </select>
+                <br />
+                <br />
+                <button id="signButton" type="button" (click)="sign()" class="btn btn-primary" [disabled]="!selectedCertificate">Sign In</button>
+                <button id="refreshButton" type="button" (click)="loadCertificates()" class="btn btn-outline-primary">Refresh Certificates</button>
+              </div>
+
+              <div class="item">
+                <div [style.display]="mostrarOcultarSenha() === false ? 'none' : 'inline'">
+                  <mat-form-field class="full-width">
+                    <input matInput type="password" placeholder="Senha" formControlName="senha" required>
+                  </mat-form-field>
+                  <mat-error *ngIf="assinaturaFormulario.hasError('required')">
+                    O campo <strong>senha</strong> é obrigatório para Certificado A3.
+                  </mat-error>
+                </div>
+              </div>
+              <div class="item">
+                <button [disabled]="validarBotao()" mat-raised-button class="btnSuccess" (click)="assinarDocumento()">
+                  <mat-icon>create</mat-icon>
+                  <span> Assinar</span>
+                </button>
+              </div>
+            </div>
+        </div>
+        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+          <app-wizard [passosWizard]="passosWizard"></app-wizard>
+        </div>
+      </div>
+      <a href="http://loja.certbank.com.br" target="_blank">Você não tem ou não sabe o que é uma assinatura com certificado digital, clique
+        aqui...</a>
+    </form>
+  </mat-card>
+</div>

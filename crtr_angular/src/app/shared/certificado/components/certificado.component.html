@@ -1,0 +1,32 @@
+<div class="conteudo">
+
+  <mat-card appMaterialElevation class="mat-elevation-z8"
+             *ngFor="let certificado of certificados" class="certificado-item"
+             [class.active]="opt.checked" (click)="opt.checked='true';selecionar(certificado)">
+    <mat-radio-button #opt  [value]='certificado'>
+      <mat-card-header>
+        <div mat-card-avatar class="imagem-certificado"></div>
+        <mat-card-title>{{ certificado.Sujeito }}</mat-card-title>
+        <mat-card-subtitle>Emissor: {{ certificado.Emissor }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Válido de: {{ certificado.ValidadeCertificado }}
+        </p>
+      </mat-card-content>
+    </mat-radio-button>
+  </mat-card>
+</div>
+<div [hidden]="certificados.length == 0" class="rodape">
+  <mat-card-footer>
+    <mat-card-actions>
+      <button mat-raised-button class="btnAlert" [mat-dialog-close]>
+        Cancelar
+      </button>
+      <button #btnSalvar mat-raised-button
+        class="btnCorGreen" type="submit" [disabled]="!habilitarBotao" (click)="enviar()">
+        Salvar
+      </button>
+    </mat-card-actions>
+  </mat-card-footer>
+</div>

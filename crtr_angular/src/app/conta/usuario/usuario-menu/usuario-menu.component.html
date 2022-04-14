@@ -1,0 +1,10 @@
+<button class="no-hover" mat-button [matMenuTriggerFor]="menu">{{nomeUsuario}} <span>&#9663;</span></button>
+<mat-menu #menu="matMenu" overlapTrigger="false">
+  <span>
+    <button mat-menu-item [routerLink]="['/usuario-conta']">Minha conta</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item [routerLink]="['/usuario-alterar-senha']">Alterar senha</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="logout()">Sair</button>
+  </span>
+</mat-menu>

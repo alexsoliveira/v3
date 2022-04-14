@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="node_modules\**" />
+    <Compile Remove="src\app\solicitacao\nova-solicitacao\cadastro\**" />
+    <EmbeddedResource Remove="node_modules\**" />
+    <EmbeddedResource Remove="src\app\solicitacao\nova-solicitacao\cadastro\**" />
+    <None Remove="node_modules\**" />
+    <None Remove="src\app\solicitacao\nova-solicitacao\cadastro\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="src\app\services\login.service copy.ts" />
+    <None Remove="src\web.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="src\web.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

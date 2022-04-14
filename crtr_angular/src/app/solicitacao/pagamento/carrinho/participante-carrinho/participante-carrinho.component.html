@@ -1,0 +1,84 @@
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]='dataSource'>
+
+    <ng-container matColumnDef="Participante">
+      <th style="width: 20%" mat-header-cell *matHeaderCellDef> Participante </th>
+      <td mat-cell *matCellDef="let row">  {{row.nome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Parte">
+      <th style="width: 10%" mat-header-cell *matHeaderCellDef> Parte </th>
+      <td mat-cell *matCellDef="let row"> {{row.tipoParticipante}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="Impressao">
+      <th style="width: 10%" mat-header-cell *matHeaderCellDef>Custo de impressão </th>
+      <td mat-cell *matCellDef="let row;  index as i;"><strong class="corValor">{{row.Impressao | currency:'BRL':true:'1.2' }}</strong></td>
+    </ng-container>
+
+    <ng-container matColumnDef="Frete" style="text-align: center !important;">
+      <th style="width: 10%" mat-header-cell *matHeaderCellDef> Frete </th>
+      <td mat-cell *matCellDef="let row"> <strong class="corValor">{{row.Frete | currency:'BRL':true:'1.2' }}</strong>
+      </td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="Prazo">
+      <th style="width: 10%" mat-header-cell *matHeaderCellDef> Prazo de entrega </th>
+      <td mat-cell *matCellDef="let row"> {{row.Prazo}} </td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <mat-card>
+  <mat-card-content>
+    <div class="content" fxLayout="row wrap" fxLayoutAlign="space-evenly stretch" fxLayoutGap="10px grid">
+
+      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+        <app-pessoa-fisica [tipoParte]='item.idTipoParte | participante' [documento]='item.idPessoaNavigation.documento'
+          [dados]='item.idPessoaNavigation.pessoasFisicas' *ngIf='item.idPessoaNavigation.idTipoDocumento == 2'>
+        </app-pessoa-fisica>
+        <app-pessoa-juridica [tipoParte]='item.idTipoParte | participante'
+          [documento]='item.idPessoaNavigation.documento' [dados]='item.idPessoaNavigation.pessoasJuridicas'
+          *ngIf='item.idPessoaNavigation.idTipoDocumento == 5'>
+        </app-pessoa-juridica>
+      </div>
+
+
+
+    </div>
+  </mat-card-content>
+</mat-card> -->
+<!-- <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+        <app-opcao-documento [idPessoa]='item.idPessoaNavigation.idPessoa' [bsCalculoDoc]='bsParticipanteDoc' [bsCalculoEnvio]='bsParticipanteCalculoEnvio'>
+        </app-opcao-documento>
+      </div>
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="33%">
+        <app-opcao-envio [bsCalculoDoc]='bsParticipanteDoc' [bsCalculoEnvio]='bsParticipanteCalculoEnvio' >
+        </app-opcao-envio>
+      </div> -->

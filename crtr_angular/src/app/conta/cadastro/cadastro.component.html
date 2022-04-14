@@ -1,0 +1,157 @@
+<div class="container">
+  <mat-card id="app-cadastro">
+    <mat-card-header class="mat-card-header">
+      <mat-card-title>Crie sua conta</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="Cadastrar()" [formGroup]="cadastroForm">
+
+        <br>
+
+        <mat-form-field>
+          <mat-label>Nome completo</mat-label>
+          <input matInput type="text" placeholder="Nome" formControlName="nome" required />
+          <mat-error *ngFor="let validation of errorMessages.nome">
+            <mat-error class="error-message"
+              *ngIf="cadastroForm.get('nome').hasError(validation.type) && (cadastroForm.get('nome').dirty || cadastroForm.get('nome').touched)">
+              {{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <br>
+        <br>
+
+        <mat-form-field>
+          <mat-label>Nome social</mat-label>
+          <input matInput type="text" placeholder="Como você quer ser chamado?" formControlName="nomeSocial" required />
+          <!-- <mat-error *ngFor="let validation of errorMessages.nomeSocial">
+            <mat-error class="error-message"
+              *ngIf="cadastroForm.get('nomeSocial').hasError(validation.type) && (cadastroForm.get('nomeSocial').dirty || cadastroForm.get('nomeSocial').touched)">
+              {{validation.message}}</mat-error>
+          </mat-error> -->
+        </mat-form-field>
+
+        <br>
+        <br>
+
+        <mat-form-field>
+          <mat-label>Tipo de Documento</mat-label>
+          <mat-select (selectionChange)="validarTipoDocumento($event)" formControlName="idTipoDocumento">
+            <mat-option *ngFor="let tipo of selectTipoDocumentos" [value]="tipo.valor">{{tipo.texto}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-form-field>
+          <mat-label>Documento</mat-label>
+          <input matInput formControlName="documento" required>
+          <!-- [textMask]="{ mask: MASKS.cpf.textMask }" -->
+          <mat-error>
+            Documento inválido
+          </mat-error>
+        </mat-form-field>
+
+        <br *ngIf="exibirRg">
+        <br *ngIf="exibirRg">
+        <mat-form-field *ngIf="exibirRg">
+          <mat-label>RG</mat-label>
+          <input matInput formControlName="rg" required>
+          <!-- [textMask]="{ mask: MASKS.cpf.textMask }" -->
+          <mat-error>
+            RG inválido
+          </mat-error>
+        </mat-form-field>
+        
+        <br>
+        <br>
+        <mat-form-field>
+          <mat-label>Gênero</mat-label>
+          <mat-select formControlName="idGenero">
+            <mat-option *ngFor="let tipo of selectGeneros" [value]="tipo.idGenero">{{tipo.descricao}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br>
+        <br>
+
+        <div formGroupName="matching_emails">
+          <mat-form-field class="full-width">
+            <input matInput type="email" placeholder="Email" formControlName="email" required>
+            <mat-error *ngFor="let validation of errorMessages.email">
+              <mat-error class="error-message"
+                *ngIf="cadastroForm.get('matching_emails').get('email').hasError(validation.type) && (cadastroForm.get('matching_emails').get('email').dirty || cadastroForm.get('matching_emails').get('email').touched)">
+                {{validation.message}}</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          <br>
+          <br>
+
+          <mat-form-field class="full-width">
+            <input matInput type="email" placeholder="Confirma email" formControlName="confirma_email"
+              [errorStateMatcher]="parentErrorStateMatcher" required>
+            <mat-error *ngFor="let validation of errorMessages.confirma_email">
+              <mat-error class="error-message" *ngIf="(
+                cadastroForm.get('matching_emails').get('confirma_email').hasError(validation.type) ||
+                cadastroForm.get('matching_emails').hasError(validation.type)) &&
+                (cadastroForm.get('matching_emails').get('confirma_email').dirty ||
+                cadastroForm.get('matching_emails').get('confirma_email').touched)">{{validation.message}}</mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <br>
+
+        <div formGroupName="matching_passwords">
+          <mat-form-field class="full-width">
+            <input matInput type="password" placeholder="Senha" formControlName="senha" required>
+            <mat-error *ngFor="let validation of errorMessages.senha">
+              <mat-error class="error-message"
+                *ngIf="cadastroForm.get('matching_passwords').get('senha').hasError(validation.type) && (cadastroForm.get('matching_passwords').get('senha').dirty || cadastroForm.get('matching_passwords').get('senha').touched)">
+                {{validation.message}}</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          <br>
+          <br>
+
+          <mat-form-field class="full-width">
+            <input matInput type="password" placeholder="Confirma senha" formControlName="confirma_senha"
+              [errorStateMatcher]="parentErrorStateMatcher" required>
+            <mat-error *ngFor="let validation of errorMessages.confirma_senha">
+              <mat-error class="error-message" *ngIf="(
+                cadastroForm.get('matching_passwords').get('confirma_senha').hasError(validation.type) ||
+                cadastroForm.get('matching_passwords').hasError(validation.type)) &&
+                (cadastroForm.get('matching_passwords').get('confirma_senha').dirty ||
+                cadastroForm.get('matching_passwords').get('confirma_senha').touched)">{{validation.message}}
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <mat-card-title class="headerSubtitulo">Termo de Cookie</mat-card-title>
+        <mat-card-content>
+          <app-termo-cookie #cpTermo (isTermosAceito)="termosCookies($event)"></app-termo-cookie>
+        </mat-card-content>
+
+        <br>
+
+        <button class="button" mat-raised-button color="primary" [disabled]="validarBotao()" type="submit">
+          Criar conta
+        </button>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <section class="table">
+        <div class="cell">
+          <a mat-button [routerLink]="['/conta/login']" routerLinkActive="router-link-active" color="primary">Acesse sua
+            conta</a>
+        </div>
+        <div class="cell">
+          <a mat-button [routerLink]="['/conta/recuperar-senha']" routerLinkActive="router-link-active"
+            color="primary">Esqueceu a senha?</a>
+        </div>
+      </section>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,98 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <None Remove="Templates\Email\AlterarEndereco.html" />
+    <None Remove="Templates\Email\AlterarSenha.html" />
+    <None Remove="Templates\Email\ConfirmacaoPagamento.html" />
+    <None Remove="Templates\Email\CriarConta.html" />
+    <None Remove="Templates\Email\CriarEndereco.html" />
+    <None Remove="Templates\Email\CriarSolicitacao.html" />
+    <None Remove="Templates\Email\LayoutParaPDFEnvioCartorio.html" />
+    <None Remove="Templates\Email\SalvarDadosPessoais.html" />
+    <None Remove="Templates\Sms\AlterarEndereco.html" />
+    <None Remove="Templates\Sms\AlterarSenha.html" />
+    <None Remove="Templates\Sms\CriarConta.html" />
+    <None Remove="Templates\Sms\CriarEndereco.html" />
+    <None Remove="Templates\Sms\CriarSolicitacao.html" />
+    <None Remove="Templates\Sms\SalvarDadosPessoais.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Templates\Email\AlterarEndereco.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Email\AlterarSenha.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Email\ConfirmacaoPagamento.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Email\CriarConta.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Email\CriarEndereco.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Email\CriarSolicitacao.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Email\LayoutParaPDFEnvioCartorio.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Email\SalvarDadosPessoais.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Sms\AlterarEndereco.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Sms\AlterarSenha.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Sms\CriarConta.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Sms\CriarEndereco.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Sms\CriarSolicitacao.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Sms\SalvarDadosPessoais.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\TGS.Cartorio.Infrastructure.Configs\TGS.Cartorio.Infrastructure.Configs.csproj" />
+    <ProjectReference Include="..\TGS.Cartorio.Application\TGS.Cartorio.Application.csproj" />    
+    <ProjectReference Include="..\..\Domain\TGS.Cartorio.Domain\TGS.Cartorio.Domain.csproj" />    
+    <ProjectReference Include="..\..\Infrastructure\TGS.Cartorio.Infrastructure.IoC\TGS.Cartorio.Infrastructure.IoC.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <UserSecretsId>04056166-95ad-4dd7-9e80-72cc1c0cf8e1</UserSecretsId>
+    <!--<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>-->
+  </PropertyGroup>
+
+  <!--<ItemGroup>
+    <Content Include="appsettings.json" CopyToOutputDirectory="Always" />
+    <Content Include="appsettings.Development.json" CopyToPublishDirectory="Never" />
+    <Content Include="appsettings.Homolog.json" CopyToPublishDirectory="Never" />
+    <Content Include="appsettings.Production.json" CopyToPublishDirectory="Never" />
+    
+    <Content Include="appsettings.$(ASPNETCORE_ENVIRONMENT).json" DependentUpon="appsettings.json" CopyToOutputDirectory="Always" />
+  </ItemGroup>-->
+
+
+</Project>

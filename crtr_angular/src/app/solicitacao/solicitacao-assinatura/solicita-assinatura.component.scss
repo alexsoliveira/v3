@@ -1,0 +1,10 @@
+.compass
+{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .item{
+    margin: 0.5em;
+  }
+}

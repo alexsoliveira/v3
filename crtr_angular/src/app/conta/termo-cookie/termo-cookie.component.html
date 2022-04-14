@@ -1,0 +1,16 @@
+<div>
+  <mat-card class="mat-elevation-z8">
+
+
+    <div style="padding-top: 10px;" [innerHtml]="termo.conteudo"></div>
+    <div class="form-group">
+      <div class="col-md-3" style="text-align: center;">
+        <div class="checkbox">
+          <label class="checkbox-inline">
+            <input type="checkbox" (change)='termosUso($event)'>Aceito os termos.
+          </label>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

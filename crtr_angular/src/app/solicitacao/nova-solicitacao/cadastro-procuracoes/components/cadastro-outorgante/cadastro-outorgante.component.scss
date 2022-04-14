@@ -1,0 +1,35 @@
+.espacos-entre-campos{
+  padding: 0 5px;
+}
+
+.botao-tamanho{
+  width: 100%;
+  height: 52px;
+  margin-bottom: 19px;
+}
+
+.btn-add-outorgante {
+  width: 250px;
+  float: right;
+  height: 52px;
+  margin: 20px 0px 5px 0px;
+}
+
+.div-btn-add-outorgante {
+  display: block !important;
+}
+
+@media screen and (max-width: 600px) {
+  .btn-add-outorgante {
+    width: 100%;
+    float: none; 
+  }
+
+  .div-btn-add-outorgante {
+    display: flex !important;
+  }
+
+  .espacos-entre-campos{
+    padding: 0px;
+  }
+}

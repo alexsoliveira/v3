@@ -1,0 +1,69 @@
+#cardBoleto {
+  height: 501.575px !important;
+  padding: 16px !important;
+}
+
+mat-card-header{
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-footer{
+  display: flex;
+  justify-content: center;
+  margin: 10px 10px 0px 10px;
+}
+
+.linha3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+::ng-deep .opcao-pag-cabecalho .mat-card-header-text {
+  margin: 0 !important;
+}
+
+.opcao-pag-titulo {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+// ::ng-deep .mat-card-header-text {
+//   margin: 0 !important;
+// }
+
+.opcao-item-titulo-pagamento {
+  margin: 0;
+}
+
+.opcao-item-titulo-pagamento-icone {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 2.5rem;
+}
+
+
+
+.icon-boleto {
+  top: 0px !important;
+  position: relative  !important;
+  left: 15px !important;
+}
+.titulo-boleto {
+  bottom: 11px !important;
+  position: relative !important;
+  left: 20px !important;
+}
+
+
+
+@media Screen and (max-width: 942px) {
+  #cardBoleto {
+    height: auto !important;
+    padding: 16px !important;
+  }
+}

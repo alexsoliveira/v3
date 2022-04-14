@@ -1,0 +1,157 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Lato", "Helvetica Neue", "sans-serif";
+  //background-color: rgba($color: #000000, $alpha: 0.1);
+
+  .main-container {
+    max-width: 100%;
+    padding: 0 10px;
+    margin: auto;
+
+    > h1 {
+      margin: 40px 0;
+      text-align: center;
+    }
+  }
+}
+
+.flex {
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  box-sizing: border-box;
+}
+.flex-20 {
+  -webkit-flex: 1 1 20%;
+  -ms-flex: 1 1 20%;
+  flex: 1 1 20%;
+  max-width: 20%;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+.layout-row .flex-33 {
+  -webkit-flex: 1 1 calc(100% / 3);
+  -ms-flex: 1 1 calc(100% / 3);
+  flex: 1 1 calc(100% / 3);
+  box-sizing: border-box;
+}
+.layout-row .flex-66 {
+  -webkit-flex: 1 1 calc(200% / 3);
+  -ms-flex: 1 1 calc(200% / 3);
+  flex: 1 1 calc(200% / 3);
+  box-sizing: border-box;
+}
+.layout-row .flex-33 {
+  max-width: calc(100% / 3);
+  max-height: 100%;
+}
+.layout-row .flex-66 {
+  max-width: calc(200% / 3);
+  max-height: 100%;
+}
+.layout-column .flex-33 {
+  max-width: 100%;
+  max-height: calc(100% / 3);
+}
+.layout-column .flex-66 {
+  max-width: 100%;
+  max-height: calc(200% / 3);
+}
+
+//DELETAR E ADICIONAR NO HOME.COMPOMENT
+
+  // width: 100%;
+  // height: 100%;
+  //left: 0px;
+  //top: 0px;
+
+
+// .imgFundo {
+//   background-image: url("images/fundo.jpg");
+//   width: 100%;
+//   height: 100%;
+//   left: 0px;
+//   top: 0px;
+// }
+
+.btnCorGreen {
+  background-color: #3EB57D;
+  color: white;
+  mat-icon {
+    color: white;
+  }
+  &:hover{
+    background-color:#02ac5d;
+  }
+}
+
+.btnSuccess {
+  background-color: #066340;
+  color: white;
+  mat-icon {
+    color: white;
+  }
+}
+
+.btnWarning {
+  background-color: #f0ad4e;
+  color: white;
+  mat-icon {
+    color: white;
+  }
+  &:hover{
+    background-color: #ff9500;
+  }
+}
+
+.btnInfo {
+  background-color: #5bc0de;
+  color: white;
+  mat-icon {
+    color: white;
+  }
+}
+
+.btnDanger {
+  background-color: #d9534f;
+  color: white;
+  mat-icon {
+    color: white;
+  }
+  &:hover{
+    background-color: #ff0000;
+  }
+}
+
+.btnEmBreve {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.btnAlert {
+  background-color:#91232A;
+  color: white;
+  mat-icon {
+    color: white;
+  }
+}
+
+.wrapper {
+  margin-right: auto; /* 1 */
+  margin-left:  auto; /* 1 */
+
+  max-width: 960px; /* 2 */
+
+  padding-right: 10px; /* 3 */
+  padding-left:  10px; /* 3 */
+}
+
+.cor-moeda{
+  color: rgb(255, 0, 0);
+}

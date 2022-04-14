@@ -1,0 +1,90 @@
+.content{
+  //  border: 1px solid blue;
+}
+
+.endereco-item {
+  width: 100%;
+  margin: 1rem;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  padding: 0 0 0 0 !important;
+  margin: 0 0 0 0 !important;
+}
+
+
+
+.endereco-item:hover {
+  background-color: #dddada;
+}
+
+.endereco-item.active {
+  background-color: #dddada;
+}
+
+.endereco-item-titulo {
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+  font-size: 1rem;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+.endereco-item-titulo-icone {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  padding-right: 1.6rem;
+}
+
+.endereco-item-botoes {
+  display: flex;
+  // min-width: 200px;
+  justify-content: flex-end;
+}
+
+// ::ng-deep .mat-radio-label {
+//   white-space: normal !important;
+// }
+
+:root {
+  --padding-button: {
+    padding: 0px 150px 0px 150px !important;
+  }
+}
+
+.width-screen-maior-600 {
+  display: auto;
+}
+
+.width-screen-menor-600 {
+  display: auto;
+}
+
+.margin-left-end {
+  margin-left: 10px !important;
+}
+
+@media screen and (max-width: 600px) {
+  mat-raised-button {
+    padding: auto 1000px !important;
+  }
+
+  .width-screen-maior-600 {
+    display: none !important;
+  }
+  
+  .width-screen-menor-600 {
+    display: auto !important;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .width-screen-maior-600 {
+    display: auto !important;
+  }
+  
+  .width-screen-menor-600 {
+    display: none !important;
+  }
+}

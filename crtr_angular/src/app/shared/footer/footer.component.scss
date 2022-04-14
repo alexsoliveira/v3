@@ -1,0 +1,42 @@
+.spacer {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.texto {
+  font-size: 13px;
+}
+
+.banner {
+  height: 70px;
+  background-color: #066340;
+  color: white;
+  text-align: center;
+  line-height: normal !important;
+}
+
+.footer {
+  position: relative;
+  left: 0px;
+  bottom: 0px;
+  height: 70px;
+  width: 100%;
+  // flex-shrink: 0;
+  // position: relative;
+  // left: 0;
+  // bottom: 0;
+  // width: 100%;
+  // height: auto !important;
+  // min-height: 100%;
+}
+
+
+.linkPoliticaPrivacidade {
+  text-decoration: none !important;
+  color: white !important;
+  font: 500 13px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal;
+  margin: 0px auto !important;
+}
+

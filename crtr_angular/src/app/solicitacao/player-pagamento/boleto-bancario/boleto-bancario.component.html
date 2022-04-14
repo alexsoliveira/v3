@@ -1,0 +1,49 @@
+<mat-card id="cardBoleto" class="corpo mat-elevation-z8">
+  <mat-card-header class='opcao-pag-cabecalho'>
+    
+      
+      <mat-card-title class="opcao-item-titulo-pagamento">
+        <mat-icon class="opcao-item-titulo-pagamento-icone icon-boleto">receipt</mat-icon>
+        <span class="titulo-boleto">Boleto</span>
+      </mat-card-title>
+  
+  </mat-card-header>
+  <mat-card-content [formGroup]="formGroup">
+
+    <div class="content" fxLayout="row wrap" fxLayoutAlign="space-around start" fxLayoutGap="grid">
+      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="100%">
+        <mat-form-field appearance="fill" class="input-form-field">
+          <mat-label>Tipo</mat-label>
+          <mat-select  #documento (selectionChange)='tipoDoc(documento.value)'  formControlName="tipoDocumento" required >
+            <mat-option *ngFor="let tipoDocumento of tipoDocumentos" [value]="tipoDocumento.valor">
+              {{ tipoDocumento.texto }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="65%" fxFlex.xs="100%" fxFlex.sm="100%">
+        <mat-form-field appearance="fill" class="input-form-field">
+          <mat-label>Documento</mat-label>
+          <input matInput formControlName="numero" required [textMask]="documento.value == 2 ? { mask: MASKS.cpf.textMask } : {mask: MASKS.cnpj.textMask}">
+          <mat-error *ngIf="documento.value == 2">
+            CPF inválido
+          </mat-error>
+          <mat-error *ngIf="documento.value == 5">
+            CNPJ inválido
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex="95%" fxFlex.xs="100%" fxFlex.sm="100%">
+        <mat-form-field appearance="fill" class="input-form-field">
+          <mat-label>Nome completo</mat-label>
+          <input matInput formControlName="nomeCompleto" required maxlength="60">
+        </mat-form-field>
+      </div>
+      <p><span style="color: red;">Atenção:</span> Os valores apresentados podem sofrer alterações de taxas em função dos meios de pagamento. </p>
+    </div>
+    <mat-card-footer>
+      <button [disabled]='!formGroup.valid' (click)='Pagar()' mat-raised-button class="btnCorGreen" type="submit"> Gerar boleto
+      </button>
+    </mat-card-footer>
+  </mat-card-content>
+</mat-card>

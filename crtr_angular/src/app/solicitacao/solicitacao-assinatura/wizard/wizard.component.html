@@ -1,0 +1,32 @@
+<div [ngSwitch]='passosWizard'>
+  <div class="wizard" *ngSwitchCase="0">
+    <h2 class="wizard-titulo">Só mais alguns instantes para você realizar uma assinatura!</h2>
+    <blockquote class="wizard-texto">
+      É fácil e rápido, só temos que realizar duas etapas para prosseguir!
+      Primeiro, precisamos instalar uma extensão do navegador!
+      Por favor, clique no botão abaixo. Você será redirecionado para instalar a extensão!
+      <div>
+        <a class="botao-loja" mat-raised-button
+          href="https://chrome.google.com/webstore/detail/jdnigdmoglohllckdendjneacpmijbko/preview?hl=pt-BR&authuser=0"
+          target="_blank">Clique aqui!</a>
+      </div>
+    </blockquote>
+    <h4 class="wizard-passo">Passo 1/2</h4>
+  </div>
+
+  <div class="wizard" *ngSwitchCase="1">
+    <h2 class="wizard-titulo">Já vi que você instalou a extensão, estamos perto de finalizar nosso processo!</h2>
+    <blockquote class="wizard-texto">
+      Agora só falta você instalar o programa que o navegador baixou em seu computador!
+      Por favor, instale o programa agora. Em instantes você estará pronto para assinar seus documentos!
+    </blockquote>
+    <h4 class="wizard-passo">Passo 2/2</h4>
+  </div>
+  <div class="wizard" *ngSwitchCase="2">
+    <h2 class="wizard-titulo">Efetue a assinatura de seus documentos!</h2>
+    <blockquote class="wizard-texto"> Para assinar, faça o upload do documento, selecione o certificado que possui instalado em seu computador,
+       e clique no botão Assinar!
+    </blockquote>
+  </div>
+</div>
+
